@@ -25,6 +25,7 @@ if name_input:
     df = load_data(nameL,nrow,name_input)
     nameF = df.shape[0]
     loadinms.text(str(nrow) + ' Datos cargados')
+    st.dataframe(df)
     st.write(f'Se encontró {name_input} un total de: {nameF}')
 
 
