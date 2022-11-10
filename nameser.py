@@ -4,7 +4,7 @@ import numpy as np
 
 
 nrow = 10000
-nameL = 'https://raw.githubusercontent.com/NeusAiriGit/streamlit_lab/2ce36a1deaaa3962cb3b79f89b8c4553d69ab1dc/dataset.csv?token=GHSAT0AAAAAAB2XY6OHRP6XGESNPLKCMCKMY3NHVDA'
+nameL = 'dataset.csv'
 
 
 
@@ -12,7 +12,8 @@ nameL = 'https://raw.githubusercontent.com/NeusAiriGit/streamlit_lab/2ce36a1deaa
 @st.cache
 def load_data(nameL,nrow,name_input):
     df = pd.read_csv(nameL,nrows=nrow)
-    filtereddata = df.where(df['name'] == name_input)
+    filtereddata =df[df['name'].str.contains(name_input)]
+
     return filtereddata
 
 
@@ -26,7 +27,7 @@ if name_input:
     nameF = df.shape[0]
     loadinms.text(str(nrow) + ' Datos cargados')
     st.dataframe(df)
-    st.write(f'Se encontró {name_input} un total de: {nameF}')
+    st.write(f'Se encontró {name_input} un total de: {nameF} veces')
 
 
 
