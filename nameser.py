@@ -21,7 +21,7 @@ def load_data(nameL,nrow,name_input):
 
 st.title('Buscar nombres')
 name_input = st.text_input('Nombre a buscar: ')
-if name_input:
+if st.button('Buscar'):
     loadinms = st.text('Cargando datos...')
     df = load_data(nameL,nrow,name_input)
     nameF = df.shape[0]
