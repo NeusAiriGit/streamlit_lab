@@ -10,17 +10,17 @@ st.title('Buscar por indices')
 @st.cache
 def load_data(nameL,gender):
     df = nameL
-    filtereddata =df[(df['sex']  == gender)]
+    filtereddata =df[df['sex']  == gender]
 
     return filtereddata
 
 
-selected_sex = st.selectbox('Genero a filtrar: ', df['Sex'].unique())
+selected_sex = st.selectbox('Genero a filtrar: ', df['sex'].unique())
 
 if st.button('Filtrar por Genero'):
 
     loadinms = st.text('Cargando datos...')
-    df = load_data(nameL,selected_sex)
+    df = load_data(df ,selected_sex)
     nameF = df.shape[0]
     loadinms.text('Datos cargados')
     st.dataframe(df)
