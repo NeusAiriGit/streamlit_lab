@@ -7,4 +7,4 @@ def bienvenida(nombre):
 myname = st.text_input('Nombre: ')
 if myname:
     mensaje = bienvenida(myname)
-    st.write(': {mensaje}')
+    st.write(f'{mensaje}')
